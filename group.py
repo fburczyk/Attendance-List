@@ -27,6 +27,30 @@ class Group:
         else:
             print(f"Student {student} not found in group.")
 
+    def import_data(self,filename):
+        """Import students from file."""
+        try:
+            with open(filename, "r") as file:
+                for line in file:
+                    student_data = line.strip().split()
+                    if len(student_data) == 3:
+                        first_name, last_name, student_id = student_data[0], student_data[1], int(student_data[2])
+                        student = Student(first_name, last_name, student_id)
+                        self.add_student(student)
+            print(f"Successfully imported students from {filename}")
+        except FileNotFoundError:
+            print(f"File {filename} not found.")
+
+    def export_data(self,filename):
+        """Checking if file is a .txt file"""
+        if not filename.endswith('.txt'):
+            filename += '.txt'
+        """Export attendance list to file."""
+        with open(filename, "w") as file:
+            for student in self.attendance_list:
+                file.write(f"{student}\n")
+        print(f"Successfully exported attendance to {filename}")
+
     def display_attendance(self):
         """Display the attendance list for all students."""
         print(f"Attendance for group: {self.group_name}")
