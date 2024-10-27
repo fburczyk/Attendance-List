@@ -7,8 +7,19 @@ class Group:
         self.attendance_list = {}
 
     def add_student(self, student: Student):
-        """Add student to the group with attendance set to 0."""
-        self.attendance_list[student] = 0
+        """Check if student exists based on id"""
+        existing_student = None
+        for s in self.attendance_list:
+            if s.student_id == student.student_id:
+                existing_student = s
+                break
+        """Update student if already exists"""
+        if existing_student:
+            existing_student.first_name = student.first_name
+            existing_student.last_name = student.last_name
+        else:
+            """Add student to the group with attendance set to 0."""
+            self.attendance_list[student] = 0
 
     def mark_student_attendance(self, student: Student, present: bool):
         """Mark student attendance as present or not."""
