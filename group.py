@@ -10,14 +10,10 @@ class Group:
             """Add student to the group with attendance set to 0."""
             self.attendance_list[student] = 0
 
-    def update_student_database (self, student: Student):
+    def update_student_info (self, student: Student):
         """Check if student exists based on id and update data"""
-        existing_student = None
-        for s in self.attendance_list:
-            if s.student_id == student.student_id:
-                existing_student = s
-                break
-        if existing_student:
+        if student.student_id in self.attendance_list:
+            existing_student = self.attendance_list[student.student_id]
             existing_student.first_name = student.first_name
             existing_student.last_name = student.last_name
 
