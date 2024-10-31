@@ -15,5 +15,9 @@ class Student:
         """Allows to use student object as dict key"""
         return hash(self.student_id)
 
+    def update_info(self, first_name: str, last_name: str):
+        """Update student info"""
+        self.first_name = first_name
+        self.last_name = last_name
 
 
