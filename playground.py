@@ -26,7 +26,7 @@ def test_group_attendance():
     group.display_attendance()
 
     # Export attendance to file
-    group.export_data("test_attendance.txt")
+    group.export_data("test_group2.txt")
 
     # Update student info
     print("\nUpdating student info for John Doe...")
