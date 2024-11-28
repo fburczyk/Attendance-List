@@ -44,6 +44,8 @@ class Group:
                         first_name, last_name, student_id = student_data[0], student_data[1], int(student_data[2])
                         student = Student(first_name, last_name, student_id)
                         self.add_student(student)
+                    else:
+                        raise ValueError
             print(f"Successfully imported students from {filename}")
         except FileNotFoundError:
             print(f"File {filename} not found.")
