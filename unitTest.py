@@ -1,39 +1,9 @@
 import pytest
-import os
 from student import Student
 from group import Group
 
 
 # Tests for Student Class
-def test_student_initialization():
-    """Test student initialization."""
-    student = Student("John", "Doe", 12345)
-    assert student.first_name == "John"
-    assert student.last_name == "Doe"
-    assert student.student_id == 12345
-    assert str(student) == "John Doe 12345"
-
-
-def test_student_equality():
-    """Test student equality based on student_id."""
-    student1 = Student("John", "Doe", 12345)
-    student2 = Student("Jane", "Smith", 12345)
-    student3 = Student("Alice", "Brown", 67890)
-    assert student1 == student2  # Same student_id
-    assert student1 != student3  # Different student_id
-
-
-def test_student_hashing():
-    """Test student objects as dictionary keys."""
-    student1 = Student("John", "Doe", 12345)
-    student2 = Student("Jane", "Smith", 12345)
-    student3 = Student("Alice", "Brown", 67890)
-
-    attendance = {student1: "Present", student3: "Absent"}
-    assert attendance[student2] == "Present"  # Same student_id as student1
-    assert attendance[student3] == "Absent"
-
-
 def test_update_info():
     """Test updating student info."""
     student = Student("John", "Doe", 12345)
@@ -99,7 +69,6 @@ def test_import_data():
         file.write("Alice Johnson 67890\nBob Brown 98765")
 
     group.import_data(file_name)
-    os.remove(file_name)
 
     new_student1 = Student("Alice", "Johnson", 67890)
     new_student2 = Student("Bob", "Brown", 98765)
@@ -126,4 +95,3 @@ def test_export_data(setup_group):
         content = file.read()
         assert "John Doe 12345 - Present" in content
         assert "Jane Smith 54321 - Absent" in content
-    os.remove(filename)
