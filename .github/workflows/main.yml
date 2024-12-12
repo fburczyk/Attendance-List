@@ -60,6 +60,7 @@ jobs:
           INSERT_ISSUE_URLS: "true"
           CLOSE_ISSUES: "true"
           AUTO_ASSIGN: "true"
+          ISSUE_TITLE_PREFIX: "Found TODOs in code"
       - name: Set Git user
         run: |
           git config --global user.name "github-actions[bot]"
