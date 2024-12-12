@@ -4,6 +4,7 @@ from group import Group
 
 
 class AttendanceTests(unittest.TestCase):
+    #TODO testy testy testy...
     def test_mark_attendance(self):
         # Given
         test_group = Group("Test Group")
