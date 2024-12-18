@@ -15,8 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Cache pip dependencies
-        uses: actions/cache@v3
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -26,7 +24,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest pytest-cov  # Ensure test dependencies are installed
       - name: "Run tests with coverage"
-        run: pytest -vv --cov=src 
+        run: pytest -vv --cov=src unitTest_Kamil.py
   
   lint:
     needs: test
@@ -45,15 +43,12 @@ jobs:
           # super-linter needs the full git history to get the
           # list of files that changed across commits
           fetch-depth: 0
-      - name: Cache super-linter
-        uses: actions/cache@v3
       - name: Super-Linter
         uses: super-linter/super-linter/slim@v7.1.0
         env:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_PYTHON_RUFF: true
-          CACHE_DIR: .cache/super-linter
 
   todo-to-issue:
     runs-on: "ubuntu-latest"
