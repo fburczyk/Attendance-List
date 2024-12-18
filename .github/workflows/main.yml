@@ -1,12 +1,12 @@
-name: Learning CI 
+name: Learning CI
 
 on:
   push:
     branches:
-      - main
+      - filip_testing
   pull_request:
     branches:
-      - main
+      - filip_testing
 
 permissions: read-all
 
@@ -18,14 +18,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.13'
+          python-version: "3.12.8"
       - name: "Install dependencies"
         run: |
           python -m pip install --upgrade pip
           pip install pytest pytest-cov  # Ensure test dependencies are installed
       - name: "Run tests with coverage"
         run: pytest -vv --cov=src unitTest.py
-  
+
   lint:
     needs: test
     runs-on: "ubuntu-latest"
@@ -70,7 +70,7 @@ jobs:
           git add -A
           if [[ `git status --porcelain` ]]; then
             git commit -m "Automatically added GitHub issue links to TODOs"
-            git push origin main
+            git push origin filip_testing
           else
             echo "No changes to commit"
           fi
