@@ -1,4 +1,3 @@
-import pytest
 from group import Group
 from student import Student
 
