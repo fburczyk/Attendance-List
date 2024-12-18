@@ -24,7 +24,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest pytest-cov  # Ensure test dependencies are installed
       - name: "Run tests with coverage"
-        run: pytest -vv --cov=src
+        run: pytest -vv --cov=src unitTest.py
 
   lint:
     needs: test
