@@ -14,7 +14,7 @@ setup(
     author="Kamil Biłous",
     author_email="bruhleq@gmail.com",
     description="Attendance list managment";
-    url="https://github.com/fburczyk/Attendance-List/tree/kamil_testing";
+    url="https://github.com/fburczyk/Attendance-List/tree/kamil_testing",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
