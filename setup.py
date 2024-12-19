@@ -1,6 +1,6 @@
 import os
 
-
+from setuptools import setup
 
 version = os.getenv(
     "VERSION", "0.0.0"
